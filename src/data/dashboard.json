@@ -1,0 +1,772 @@
+{
+  "app": {
+    "name": "ByeWind",
+    "title": "Analytics Dashboard"
+  },
+  "navigation": {
+    "favorites": {
+      "title": "Favorites",
+      "active": true,
+      "items": [
+        { "id": "overview", "name": "Overview", "icon": "chart" },
+        { "id": "projects", "name": "Projects", "icon": "folder" }
+      ]
+    },
+    "dashboards": {
+      "title": "Dashboards",
+      "items": [
+        { "id": "default", "name": "Default", "icon": "dashboard", "active": true },
+        { "id": "ecommerce", "name": "eCommerce", "icon": "shopping" },
+        { "id": "projects", "name": "Projects", "icon": "folder" },
+        { "id": "courses", "name": "Online Courses", "icon": "book" }
+      ]
+    },
+    "pages": {
+      "title": "Pages",
+      "items": [
+        { 
+          "id": "profile", 
+          "name": "User Profile", 
+          "icon": "user", 
+          "expanded": true,
+          "subItems": [
+            { "id": "overview", "name": "Overview" },
+            { "id": "projects", "name": "Projects" },
+            { "id": "campaigns", "name": "Campaigns" },
+            { "id": "documents", "name": "Documents" },
+            { "id": "followers", "name": "Followers" }
+          ]
+        },
+        { "id": "orders", "name": "Orders", "icon": "shopping-cart" },
+        { "id": "account", "name": "Account", "icon": "settings" },
+        { "id": "corporate", "name": "Corporate", "icon": "building" },
+        { "id": "blog", "name": "Blog", "icon": "edit" },
+        { "id": "social", "name": "Social", "icon": "message" }
+      ]
+    }
+  },
+  "header": {
+    "searchPlaceholder": "Search...",
+    "icons": [
+      { "id": "theme", "icon": "sun", "tooltip": "Toggle theme" },
+      { "id": "history", "icon": "clock", "tooltip": "History" },
+      { "id": "notifications", "icon": "bell", "tooltip": "Notifications" },
+      { "id": "grid", "icon": "grid", "tooltip": "Grid view" }
+    ]
+  },
+  "metrics": {
+    "title": "Key Metrics",
+    "cards": [
+      {
+        "id": "customers",
+        "title": "Customers",
+        "value": "3,781",
+        "change": "+11.01%",
+        "trend": "up",
+        "icon": "users"
+      },
+      {
+        "id": "orders",
+        "title": "Orders",
+        "value": "1,219",
+        "change": "-0.03%",
+        "trend": "down",
+        "icon": "shopping-cart"
+      },
+      {
+        "id": "revenue",
+        "title": "Revenue",
+        "value": "$695",
+        "change": "+15.03%",
+        "trend": "up",
+        "icon": "dollar"
+      },
+      {
+        "id": "growth",
+        "title": "Growth",
+        "value": "30.1%",
+        "change": "+6.08%",
+        "trend": "up",
+        "icon": "trending-up"
+      }
+    ]
+  },
+  "charts": {
+    "projectionsVsActuals": {
+      "title": "Projections vs Actuals",
+      "type": "bar",
+      "data": {
+        "categories": ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+        "series": [
+          {
+            "name": "Actuals",
+            "data": [16, 19, 17, 21, 14, 19]
+          },
+          {
+            "name": "Projections",
+            "data": [4, 6, 4, 6, 4, 5]
+          }
+        ]
+      }
+    },
+    "revenue": {
+      "title": "Revenue",
+      "type": "line",
+      "data": {
+        "categories": ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+        "series": [
+          {
+            "name": "Previous Week",
+            "data": [7, 17, 10, 10, 10, 22],
+            "value": "$68,768"
+          },
+          {
+            "name": "Current Week",
+            "data": [12, 7, 7, 16, 20, 20],
+            "value": "$58,211"
+          }
+        ]
+      }
+    },
+    "totalSales": {
+      "title": "Total Sales",
+      "type": "donut",
+      "data": {
+        "series": [300.56, 135.18, 154.02, 48.96],
+        "labels": ["Direct", "Affiliate", "Sponsored", "E-mail"],
+        "centerValue": "38.6%"
+      }
+    }
+  },
+  "revenueByLocation": {
+    "title": "Revenue by Location",
+    "locations": [
+      { "name": "New York", "revenue": "72K", "coordinates": { "lat": 40.7128, "lng": -74.0060 } },
+      { "name": "San Francisco", "revenue": "39K", "coordinates": { "lat": 37.7749, "lng": -122.4194 } },
+      { "name": "Sydney", "revenue": "25K", "coordinates": { "lat": -33.8688, "lng": 151.2093 } },
+      { "name": "Singapore", "revenue": "61K", "coordinates": { "lat": 1.3521, "lng": 103.8198 } }
+    ]
+  },
+  "topSellingProducts": {
+    "title": "Top Selling Products",
+    "columns": ["Name", "Price", "Quantity", "Amount"],
+    "data": [
+      {
+        "id": 1,
+        "name": "ASOS Ridley High Waist",
+        "price": "$79.49",
+        "quantity": 82,
+        "amount": "$6,518.18"
+      },
+      {
+        "id": 2,
+        "name": "Marco Lightweight Shirt",
+        "price": "$128.50",
+        "quantity": 37,
+        "amount": "$4,754.50"
+      },
+      {
+        "id": 3,
+        "name": "Half Sleeve Shirt",
+        "price": "$39.99",
+        "quantity": 64,
+        "amount": "$2,559.36"
+      },
+      {
+        "id": 4,
+        "name": "Lightweight Jacket",
+        "price": "$20.00",
+        "quantity": 184,
+        "amount": "$3,680.00"
+      },
+      {
+        "id": 5,
+        "name": "Marco Shoes",
+        "price": "$79.49",
+        "quantity": 64,
+        "amount": "$1,965.81"
+      }
+    ]
+  },
+  "notifications": {
+    "title": "Notifications",
+    "items": [
+      {
+        "id": 1,
+        "message": "You have a bug that needs to be fixed",
+        "time": "Just now",
+        "icon": "bug"
+      },
+      {
+        "id": 2,
+        "message": "New user registered",
+        "time": "59 minutes ago",
+        "icon": "user-plus"
+      },
+      {
+        "id": 3,
+        "message": "You have a bug that needs to be fixed",
+        "time": "12 hours ago",
+        "icon": "bug"
+      },
+      {
+        "id": 4,
+        "message": "Andi Lane subscribed to you",
+        "time": "Today, 11:59 AM",
+        "icon": "bell"
+      }
+    ]
+  },
+  "activities": {
+    "title": "Activities",
+    "items": [
+      {
+        "id": 1,
+        "message": "You have a bug that needs to be fixed",
+        "time": "Just now",
+        "avatar": "avatar1"
+      },
+      {
+        "id": 2,
+        "message": "Released a new version",
+        "time": "59 minutes ago",
+        "avatar": "avatar2"
+      },
+      {
+        "id": 3,
+        "message": "Submitted a bug",
+        "time": "12 hours ago",
+        "avatar": "avatar3"
+      },
+      {
+        "id": 4,
+        "message": "Modified A data in Page X",
+        "time": "Today, 11:59 AM",
+        "avatar": "avatar4"
+      },
+      {
+        "id": 5,
+        "message": "Deleted a page in Project X",
+        "time": "Feb 2, 2023",
+        "avatar": "avatar5"
+      }
+    ]
+  },
+  "contacts": {
+    "title": "Contacts",
+    "items": [
+      { "id": 1, "name": "Natali Craig", "avatar": "avatar1" },
+      { "id": 2, "name": "Drew Cano", "avatar": "avatar2" },
+      { "id": 3, "name": "Orlando Diggs", "avatar": "avatar3" },
+      { "id": 4, "name": "Andi Lane", "avatar": "avatar4" },
+      { "id": 5, "name": "Kate Morrison", "avatar": "avatar5" },
+      { "id": 6, "name": "Koray Okumus", "avatar": "avatar6" }
+    ]
+  },
+  "orders": {
+    "title": "Order List",
+    "columns": ["Order ID", "User", "Project", "Address", "Date", "Status"],
+    "data": [
+      {
+        "id": 1,
+        "orderId": "#CM9801",
+        "user": "Natali Craig",
+        "project": "Landing Page",
+        "address": "Meadow Lane Oakland",
+        "date": "Just now",
+        "status": "In Progress",
+        "statusColor": "purple"
+      },
+      {
+        "id": 2,
+        "orderId": "#CM9802",
+        "user": "Kate Morrison",
+        "project": "CRM Admin pages",
+        "address": "Larry San Francisco",
+        "date": "A minute ago",
+        "status": "Complete",
+        "statusColor": "green"
+      },
+      {
+        "id": 3,
+        "orderId": "#CM9803",
+        "user": "Drew Cano",
+        "project": "Client Project",
+        "address": "Bagwell Avenue Ocala",
+        "date": "1 hour ago",
+        "status": "Pending",
+        "statusColor": "blue"
+      },
+      {
+        "id": 4,
+        "orderId": "#CM9804",
+        "user": "Orlando Diggs",
+        "project": "Admin Dashboard",
+        "address": "Washburn Baton Rouge",
+        "date": "Yesterday",
+        "status": "Approved",
+        "statusColor": "orange"
+      },
+      {
+        "id": 5,
+        "orderId": "#CM9805",
+        "user": "Andi Lane",
+        "project": "App Landing Page",
+        "address": "Nest Lane Olivette",
+        "date": "Feb 2, 2023",
+        "status": "Rejected",
+        "statusColor": "gray"
+      },
+      {
+        "id": 6,
+        "orderId": "#CM9806",
+        "user": "Sarah Johnson",
+        "project": "E-commerce Store",
+        "address": "Main Street Boston",
+        "date": "2 hours ago",
+        "status": "In Progress",
+        "statusColor": "purple"
+      },
+      {
+        "id": 7,
+        "orderId": "#CM9807",
+        "user": "Michael Brown",
+        "project": "Portfolio Website",
+        "address": "Oak Avenue Chicago",
+        "date": "3 hours ago",
+        "status": "Complete",
+        "statusColor": "green"
+      },
+      {
+        "id": 8,
+        "orderId": "#CM9808",
+        "user": "Emily Davis",
+        "project": "Blog Platform",
+        "address": "Pine Street Seattle",
+        "date": "4 hours ago",
+        "status": "Pending",
+        "statusColor": "blue"
+      },
+      {
+        "id": 9,
+        "orderId": "#CM9809",
+        "user": "David Wilson",
+        "project": "Mobile App",
+        "address": "Cedar Lane Miami",
+        "date": "5 hours ago",
+        "status": "Approved",
+        "statusColor": "orange"
+      },
+      {
+        "id": 10,
+        "orderId": "#CM9810",
+        "user": "Lisa Anderson",
+        "project": "SaaS Dashboard",
+        "address": "Elm Street Denver",
+        "date": "6 hours ago",
+        "status": "Rejected",
+        "statusColor": "gray"
+      },
+      {
+        "id": 11,
+        "orderId": "#CM9811",
+        "user": "Robert Taylor",
+        "project": "API Integration",
+        "address": "Maple Drive Austin",
+        "date": "7 hours ago",
+        "status": "In Progress",
+        "statusColor": "purple"
+      },
+      {
+        "id": 12,
+        "orderId": "#CM9812",
+        "user": "Jennifer Martinez",
+        "project": "Analytics Tool",
+        "address": "Birch Road Phoenix",
+        "date": "8 hours ago",
+        "status": "Complete",
+        "statusColor": "green"
+      },
+      {
+        "id": 13,
+        "orderId": "#CM9813",
+        "user": "Christopher Lee",
+        "project": "Payment System",
+        "address": "Spruce Avenue Portland",
+        "date": "9 hours ago",
+        "status": "Pending",
+        "statusColor": "blue"
+      },
+      {
+        "id": 14,
+        "orderId": "#CM9814",
+        "user": "Amanda Garcia",
+        "project": "User Management",
+        "address": "Willow Street Nashville",
+        "date": "10 hours ago",
+        "status": "Approved",
+        "statusColor": "orange"
+      },
+      {
+        "id": 15,
+        "orderId": "#CM9815",
+        "user": "Matthew Rodriguez",
+        "project": "Notification System",
+        "address": "Poplar Lane Las Vegas",
+        "date": "11 hours ago",
+        "status": "Rejected",
+        "statusColor": "gray"
+      },
+      {
+        "id": 16,
+        "orderId": "#CM9816",
+        "user": "Ashley White",
+        "project": "Chat Application",
+        "address": "Hickory Drive Orlando",
+        "date": "12 hours ago",
+        "status": "In Progress",
+        "statusColor": "purple"
+      },
+      {
+        "id": 17,
+        "orderId": "#CM9817",
+        "user": "Daniel Thompson",
+        "project": "File Upload System",
+        "address": "Sycamore Street Tampa",
+        "date": "13 hours ago",
+        "status": "Complete",
+        "statusColor": "green"
+      },
+      {
+        "id": 18,
+        "orderId": "#CM9818",
+        "user": "Jessica Clark",
+        "project": "Search Engine",
+        "address": "Magnolia Avenue Jacksonville",
+        "date": "14 hours ago",
+        "status": "Pending",
+        "statusColor": "blue"
+      },
+      {
+        "id": 19,
+        "orderId": "#CM9819",
+        "user": "Andrew Lewis",
+        "project": "Database Migration",
+        "address": "Dogwood Road Columbus",
+        "date": "15 hours ago",
+        "status": "Approved",
+        "statusColor": "orange"
+      },
+      {
+        "id": 20,
+        "orderId": "#CM9820",
+        "user": "Stephanie Walker",
+        "project": "Email Service",
+        "address": "Redwood Lane Charlotte",
+        "date": "16 hours ago",
+        "status": "Rejected",
+        "statusColor": "gray"
+      },
+      {
+        "id": 21,
+        "orderId": "#CM9821",
+        "user": "Kevin Hall",
+        "project": "Video Streaming",
+        "address": "Cypress Street Indianapolis",
+        "date": "17 hours ago",
+        "status": "In Progress",
+        "statusColor": "purple"
+      },
+      {
+        "id": 22,
+        "orderId": "#CM9822",
+        "user": "Nicole Allen",
+        "project": "Social Media App",
+        "address": "Juniper Avenue San Antonio",
+        "date": "18 hours ago",
+        "status": "Complete",
+        "statusColor": "green"
+      },
+      {
+        "id": 23,
+        "orderId": "#CM9823",
+        "user": "Ryan Young",
+        "project": "Inventory System",
+        "address": "Fir Street San Diego",
+        "date": "19 hours ago",
+        "status": "Pending",
+        "statusColor": "blue"
+      },
+      {
+        "id": 24,
+        "orderId": "#CM9824",
+        "user": "Michelle King",
+        "project": "Booking Platform",
+        "address": "Hemlock Drive Dallas",
+        "date": "20 hours ago",
+        "status": "Approved",
+        "statusColor": "orange"
+      },
+      {
+        "id": 25,
+        "orderId": "#CM9825",
+        "user": "Brandon Wright",
+        "project": "Learning Management",
+        "address": "Larch Lane San Jose",
+        "date": "21 hours ago",
+        "status": "Rejected",
+        "statusColor": "gray"
+      },
+      {
+        "id": 26,
+        "orderId": "#CM9826",
+        "user": "Rachel Lopez",
+        "project": "Event Management",
+        "address": "Ash Street Austin",
+        "date": "22 hours ago",
+        "status": "In Progress",
+        "statusColor": "purple"
+      },
+      {
+        "id": 27,
+        "orderId": "#CM9827",
+        "user": "Tyler Hill",
+        "project": "Weather App",
+        "address": "Beech Avenue Jacksonville",
+        "date": "23 hours ago",
+        "status": "Complete",
+        "statusColor": "green"
+      },
+      {
+        "id": 28,
+        "orderId": "#CM9828",
+        "user": "Samantha Scott",
+        "project": "Task Manager",
+        "address": "Cherry Street Fort Worth",
+        "date": "1 day ago",
+        "status": "Pending",
+        "statusColor": "blue"
+      },
+      {
+        "id": 29,
+        "orderId": "#CM9829",
+        "user": "Justin Green",
+        "project": "Fitness Tracker",
+        "address": "Plum Lane Columbus",
+        "date": "2 days ago",
+        "status": "Approved",
+        "statusColor": "orange"
+      },
+      {
+        "id": 30,
+        "orderId": "#CM9830",
+        "user": "Lauren Adams",
+        "project": "Recipe App",
+        "address": "Pear Street Charlotte",
+        "date": "3 days ago",
+        "status": "Rejected",
+        "statusColor": "gray"
+      },
+      {
+        "id": 31,
+        "orderId": "#CM9831",
+        "user": "Nathan Baker",
+        "project": "Music Player",
+        "address": "Apple Avenue Seattle",
+        "date": "4 days ago",
+        "status": "In Progress",
+        "statusColor": "purple"
+      },
+      {
+        "id": 32,
+        "orderId": "#CM9832",
+        "user": "Megan Nelson",
+        "project": "Photo Gallery",
+        "address": "Orange Street Denver",
+        "date": "5 days ago",
+        "status": "Complete",
+        "statusColor": "green"
+      },
+      {
+        "id": 33,
+        "orderId": "#CM9833",
+        "user": "Jacob Carter",
+        "project": "News Reader",
+        "address": "Lemon Lane Washington",
+        "date": "6 days ago",
+        "status": "Pending",
+        "statusColor": "blue"
+      },
+      {
+        "id": 34,
+        "orderId": "#CM9834",
+        "user": "Brittany Mitchell",
+        "project": "Stock Tracker",
+        "address": "Grape Street Boston",
+        "date": "1 week ago",
+        "status": "Approved",
+        "statusColor": "orange"
+      },
+      {
+        "id": 35,
+        "orderId": "#CM9835",
+        "user": "Zachary Perez",
+        "project": "Crypto Dashboard",
+        "address": "Berry Lane Phoenix",
+        "date": "1 week ago",
+        "status": "Rejected",
+        "statusColor": "gray"
+      },
+      {
+        "id": 36,
+        "orderId": "#CM9836",
+        "user": "Kayla Roberts",
+        "project": "Travel Planner",
+        "address": "Peach Street Philadelphia",
+        "date": "1 week ago",
+        "status": "In Progress",
+        "statusColor": "purple"
+      },
+      {
+        "id": 37,
+        "orderId": "#CM9837",
+        "user": "Caleb Turner",
+        "project": "Language Learning",
+        "address": "Mango Avenue San Antonio",
+        "date": "1 week ago",
+        "status": "Complete",
+        "statusColor": "green"
+      },
+      {
+        "id": 38,
+        "orderId": "#CM9838",
+        "user": "Hannah Phillips",
+        "project": "Meditation App",
+        "address": "Kiwi Street San Diego",
+        "date": "1 week ago",
+        "status": "Pending",
+        "statusColor": "blue"
+      },
+      {
+        "id": 39,
+        "orderId": "#CM9839",
+        "user": "Ethan Campbell",
+        "project": "Puzzle Game",
+        "address": "Banana Lane Dallas",
+        "date": "1 week ago",
+        "status": "Approved",
+        "statusColor": "orange"
+      },
+      {
+        "id": 40,
+        "orderId": "#CM9840",
+        "user": "Olivia Parker",
+        "project": "Drawing Tool",
+        "address": "Strawberry Street San Jose",
+        "date": "2 weeks ago",
+        "status": "Rejected",
+        "statusColor": "gray"
+      },
+      {
+        "id": 41,
+        "orderId": "#CM9841",
+        "user": "Noah Evans",
+        "project": "Code Editor",
+        "address": "Blueberry Avenue Austin",
+        "date": "2 weeks ago",
+        "status": "In Progress",
+        "statusColor": "purple"
+      },
+      {
+        "id": 42,
+        "orderId": "#CM9842",
+        "user": "Ava Edwards",
+        "project": "Password Manager",
+        "address": "Raspberry Street Jacksonville",
+        "date": "2 weeks ago",
+        "status": "Complete",
+        "statusColor": "green"
+      },
+      {
+        "id": 43,
+        "orderId": "#CM9843",
+        "user": "Liam Collins",
+        "project": "VPN Service",
+        "address": "Blackberry Lane Fort Worth",
+        "date": "2 weeks ago",
+        "status": "Pending",
+        "statusColor": "blue"
+      },
+      {
+        "id": 44,
+        "orderId": "#CM9844",
+        "user": "Sophia Stewart",
+        "project": "Cloud Storage",
+        "address": "Cranberry Street Columbus",
+        "date": "2 weeks ago",
+        "status": "Approved",
+        "statusColor": "orange"
+      },
+      {
+        "id": 45,
+        "orderId": "#CM9845",
+        "user": "Mason Sanchez",
+        "project": "Video Editor",
+        "address": "Gooseberry Avenue Charlotte",
+        "date": "2 weeks ago",
+        "status": "Rejected",
+        "statusColor": "gray"
+      },
+      {
+        "id": 46,
+        "orderId": "#CM9846",
+        "user": "Isabella Morris",
+        "project": "AI Assistant",
+        "address": "Elderberry Street Seattle",
+        "date": "3 weeks ago",
+        "status": "In Progress",
+        "statusColor": "purple"
+      },
+      {
+        "id": 47,
+        "orderId": "#CM9847",
+        "user": "William Rogers",
+        "project": "Blockchain Explorer",
+        "address": "Mulberry Lane Denver",
+        "date": "3 weeks ago",
+        "status": "Complete",
+        "statusColor": "green"
+      },
+      {
+        "id": 48,
+        "orderId": "#CM9848",
+        "user": "Mia Reed",
+        "project": "IoT Dashboard",
+        "address": "Huckleberry Street Washington",
+        "date": "3 weeks ago",
+        "status": "Pending",
+        "statusColor": "blue"
+      },
+      {
+        "id": 49,
+        "orderId": "#CM9849",
+        "user": "James Cook",
+        "project": "AR Application",
+        "address": "Boysenberry Avenue Boston",
+        "date": "3 weeks ago",
+        "status": "Approved",
+        "statusColor": "orange"
+      },
+      {
+        "id": 50,
+        "orderId": "#CM9850",
+        "user": "Charlotte Bailey",
+        "project": "VR Experience",
+        "address": "Cloudberry Street Phoenix",
+        "date": "1 month ago",
+        "status": "Rejected",
+        "statusColor": "gray"
+      }
+    ]
+  }
+}

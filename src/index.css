@@ -1,0 +1,240 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* Light Theme CSS Variables */
+  :root {
+    /* Background colors */
+    --dashboard-bg-primary: #FFFFFF;
+    --dashboard-bg-secondary: #F7F9FB;
+    --dashboard-bg-tertiary: #E3F5FF;
+    --dashboard-bg-quaternary: #E5ECF6;
+    --dashboard-bg-quinary: #1C1C1C0D;
+    
+    /* Text colors */
+    --dashboard-text-primary: #1C1C1C;
+    --dashboard-text-secondary: #1C1C1C66;
+    --dashboard-text-tertiary: #1C1C1C33;
+    
+    /* Chart colors */
+    --dashboard-chart-bar-primary: #A8C5DA;
+    --dashboard-chart-bar-secondary: #A8C5DA80;
+    --dashboard-chart-line-primary: #A8C5DA;
+    --dashboard-chart-line-secondary: #1C1C1C;
+    
+    /* Map colors */
+    --dashboard-map-country: #D9D9D9;
+    --dashboard-map-pointer: #1C1C1C;
+    --dashboard-map-pointer-border: #FFFFFF;
+    
+    /* Pie chart colors */
+    --dashboard-pie-highest: #1C1C1C;
+    --dashboard-pie-second: #BAEDBD;
+    --dashboard-pie-third: #95A4FC;
+    --dashboard-pie-fourth: #FFB3BA;
+    
+    /* Legacy colors */
+    --dashboard-card: #ffffff;
+    --dashboard-sidebar: #ffffff;
+    --dashboard-border: #e2e8f0;
+    --dashboard-accent: #1C1C1C;
+    --dashboard-success: #BAEDBD;
+    --dashboard-warning: #FFB3BA;
+    --dashboard-error: #FF6B6B;
+  }
+
+  /* Dark Theme CSS Variables */
+  [data-theme="dark"] {
+    /* Background colors */
+    --dashboard-bg-primary: #1C1C1C;
+    --dashboard-bg-secondary: #FFFFFF0D;
+    --dashboard-bg-tertiary: #E3F5FF;
+    --dashboard-bg-quaternary: #E5ECF6;
+    --dashboard-bg-quinary: #2A2A2A;
+    
+    /* Text colors */
+    --dashboard-text-primary: #FFFFFF;
+    --dashboard-text-secondary: #FFFFFF66;
+    --dashboard-text-tertiary: #FFFFFF33;
+    
+    /* Chart colors */
+    --dashboard-chart-bar-primary: #A8C5DA;
+    --dashboard-chart-bar-secondary: #A8C5DA80;
+    --dashboard-chart-line-primary: #A8C5DA;
+    --dashboard-chart-line-secondary: #FFFFFF;
+    
+    /* Map colors */
+    --dashboard-map-country: #D9D9D9;
+    --dashboard-map-pointer: #FFFFFF;
+    --dashboard-map-pointer-border: #1C1C1C;
+    
+    /* Pie chart colors */
+    --dashboard-pie-highest: #FFFFFF;
+    --dashboard-pie-second: #BAEDBD;
+    --dashboard-pie-third: #95A4FC;
+    --dashboard-pie-fourth: #FFB3BA;
+    
+    /* Legacy colors */
+    --dashboard-card: #2A2A2A;
+    --dashboard-sidebar: #1C1C1C;
+    --dashboard-border: #404040;
+    --dashboard-accent: #FFFFFF;
+    --dashboard-success: #BAEDBD;
+    --dashboard-warning: #FFB3BA;
+    --dashboard-error: #FF6B6B;
+  }
+
+  * {
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif !important;
+  }
+  
+  body {
+    @apply bg-dashboard-bgPrimary text-dashboard-textPrimary font-sans;
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif !important;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    font-size: 14px;
+  }
+
+
+  /* Dark theme main layout background */
+  [data-theme="dark"] .main-layout {
+    @apply bg-dashboard-bgPrimary;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif !important;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-dashboard-card rounded-lg shadow-sm border border-dashboard-border p-6;
+  }
+  
+  .card-hover {
+    @apply transition-all duration-200 hover:shadow-md hover:scale-[1.02];
+  }
+  
+  .sidebar-item {
+    @apply flex items-center px-3 py-2 text-sm font-medium rounded-lg transition-colors duration-200;
+  }
+  
+  .sidebar-item-active {
+    @apply bg-dashboard-bgTertiary text-dashboard-textPrimary border-r-2 border-dashboard-textPrimary;
+  }
+  
+  .sidebar-item-inactive {
+    @apply text-dashboard-textSecondary hover:bg-dashboard-bgSecondary hover:text-dashboard-textPrimary;
+  }
+  
+  .metric-card {
+    @apply bg-dashboard-card rounded-xl shadow-sm border border-dashboard-border p-6 hover:shadow-md transition-all duration-300;
+  }
+  
+  .chart-container {
+    @apply bg-dashboard-card rounded-xl shadow-sm border border-dashboard-border p-6;
+  }
+  
+  .table-container {
+    @apply bg-dashboard-card rounded-xl shadow-sm border border-dashboard-border overflow-hidden;
+  }
+  
+  .notification-item {
+    @apply flex items-start space-x-3 p-3 hover:bg-dashboard-bgSecondary rounded-lg transition-colors duration-200 max-w-full;
+  }
+  
+  .activity-item {
+    @apply flex items-start space-x-3 p-3 hover:bg-dashboard-bgSecondary rounded-lg transition-colors duration-200 max-w-full;
+  }
+  
+  .contact-item {
+    @apply flex items-center space-x-3 p-3 hover:bg-dashboard-bgSecondary rounded-lg transition-colors duration-200 cursor-pointer;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent;
+  }
+  
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  .animate-slide-up {
+    animation: slideUp 0.5s ease-out;
+  }
+  
+  .animate-scale-in {
+    animation: scaleIn 0.3s ease-out;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* Loading animation */
+.loading-shimmer {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
