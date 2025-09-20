@@ -142,25 +142,25 @@ const LineChart = React.memo(({ title, categories, series, delay = 0 }) => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay }}
-      className="chart-container bg-dashboard-bgSenary border-none rounded-lg p-6 h-[350px] flex flex-col"
+      className="chart-container bg-dashboard-bgSenary border-none rounded-lg p-6 h-[350px] flex flex-col overflow-hidden"
     >
       <div className="flex items-center gap-3 mb-4">
         <Typography variant="heading2">{title}</Typography>
         <div className='flex items-center gap-2 text-dashboard-textSecondary'>|</div>
-        <div className="flex flex-col sm:flex-row sm:space-x-4 space-y-2 sm:space-y-0 text-sm">
+        <div className="flex flex-col sm:flex-row sm:space-x-4 space-y-2 sm:space-y-0 text-sm overflow-hidden">
           {series?.map((item, index) => (
-            <div key={index} className="flex items-center space-x-2">
+            <div key={index} className="flex items-center space-x-2 min-w-0 flex-shrink-0">
               <div 
-                className="w-3 h-3 rounded-full"
+                className="w-3 h-3 rounded-full flex-shrink-0"
                 style={{ backgroundColor: options.colors[index] }}
               />
-              <Typography variant="paragraph4">{item.name}</Typography>
-              <Typography variant="paragraph4" className='!font-semibold'>{item.value}</Typography>
+              <Typography variant="paragraph4" className="truncate">{item.name}</Typography>
+              <Typography variant="paragraph4" className='!font-semibold flex-shrink-0'>{item.value}</Typography>
             </div>
           ))}
         </div>
       </div>
-      <div className="flex-1">
+      <div className="flex-1 min-h-0 overflow-hidden">
         <Chart
           options={options}
           series={modifiedSeries}

@@ -82,7 +82,7 @@ const DonutChart = React.memo(({ title, series, labels, centerValue, delay = 0 }
     }
     
     return (
-      <div className="mt-4 space-y-2">
+      <div className="mt-4 space-y-2 overflow-hidden">
         {labels.map((label, index) => {
           const seriesValue = series[index];
           if (seriesValue === undefined || seriesValue === null) {
@@ -90,15 +90,15 @@ const DonutChart = React.memo(({ title, series, labels, centerValue, delay = 0 }
           }
           
           return (
-            <div key={index} className="flex items-center justify-between">
-              <div className="flex items-center space-x-2">
+            <div key={index} className="flex items-center justify-between min-w-0">
+              <div className="flex items-center space-x-2 min-w-0 flex-1">
                 <div 
-                  className="w-2 h-2 rounded-full text-xs" 
+                  className="w-2 h-2 rounded-full text-xs flex-shrink-0" 
                   style={{ backgroundColor: options.colors[index] }}
                 ></div>
-                <Typography variant="paragraph2">{label}</Typography>
+                <Typography variant="paragraph2" className="truncate">{label}</Typography>
               </div>
-              <Typography variant="paragraph2">
+              <Typography variant="paragraph2" className="flex-shrink-0 ml-2">
                 ${seriesValue.toFixed(2)}
               </Typography>
             </div>
@@ -113,11 +113,11 @@ const DonutChart = React.memo(({ title, series, labels, centerValue, delay = 0 }
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay }}
-      className="chart-container bg-dashboard-bgSenary border-none rounded-lg p-6 h-[350px] flex flex-col"
+      className="chart-container bg-dashboard-bgSenary border-none rounded-lg p-6 h-[350px] flex flex-col overflow-hidden"
     >
       <Typography variant="heading2">{title}</Typography>
-      <div className="flex-1 flex flex-col">
-        <div className="flex-1">
+      <div className="flex-1 flex flex-col min-h-0 overflow-hidden">
+        <div className="flex-1 min-h-0 overflow-hidden">
           <Chart
             options={options}
             series={series}
@@ -125,7 +125,9 @@ const DonutChart = React.memo(({ title, series, labels, centerValue, delay = 0 }
             height="100%"
           />
         </div>
-        <CustomLegend />
+        <div className="flex-shrink-0 overflow-hidden">
+          <CustomLegend />
+        </div>
       </div>
     </motion.div>
   );
