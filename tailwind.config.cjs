@@ -27,6 +27,8 @@ module.exports = {
           bgTertiary: 'var(--dashboard-bg-tertiary)',
           bgQuaternary: 'var(--dashboard-bg-quaternary)',
           bgQuinary: 'var(--dashboard-bg-quinary)',
+          bgSenary: 'var(--dashboard-bg-senary)',
+          
           
           // Text colors - CSS Variables for theme switching
           textPrimary: 'var(--dashboard-text-primary)',

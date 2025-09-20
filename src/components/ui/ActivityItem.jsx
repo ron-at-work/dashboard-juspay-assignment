@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import ThemeSvg from './ThemeSvg';
+import ThemeSvg from './ThemeSvg';  
+import Typography from './Typography';
 
 /**
  * ActivityItem component for displaying individual activities
@@ -27,11 +28,11 @@ const ActivityItem = ({ message, time, avatar, index = 0 }) => {
       className="activity-item"
     >
       <div className="flex-shrink-0">
-        <ThemeSvg name={avatarSvg} className="w-8 h-8" />
+        <ThemeSvg name={avatarSvg} className="w-6 h-6" />
       </div>
       <div className="flex-1 min-w-0">
-        <p className="text-sm text-dashboard-textPrimary">{message}</p>
-        <p className="text-xs text-dashboard-textSecondary mt-1">{time}</p>
+        <Typography variant="paragraph3">{message}</Typography>
+        <Typography variant="body7">{time}</Typography>
       </div>
     </motion.div>
   );

@@ -86,7 +86,7 @@ class ErrorBoundary extends React.Component {
                 <summary className="text-sm font-medium text-dashboard-textPrimary cursor-pointer">
                   Error Details (Development)
                 </summary>
-                <div className="mt-2 p-3 bg-dashboard-bgSecondary rounded border">
+                <div className="mt-2 p-3 bg-dashboard-bgSenary rounded border">
                   <pre className="text-xs text-dashboard-textSecondary whitespace-pre-wrap">
                     {this.state.error?.toString()}
                     {this.state.errorInfo?.componentStack}
@@ -104,7 +104,7 @@ class ErrorBoundary extends React.Component {
               </button>
               <button
                 onClick={() => window.location.reload()}
-                className="flex-1 bg-dashboard-bgSecondary text-dashboard-textPrimary px-4 py-2 rounded-md text-sm font-medium hover:bg-dashboard-bgTertiary transition-colors border border-dashboard-border"
+                className="flex-1 bg-dashboard-bgSenary text-dashboard-textPrimary px-4 py-2 rounded-md text-sm font-medium hover:bg-dashboard-bgTertiary transition-colors border border-dashboard-border"
               >
                 Refresh Page
               </button>

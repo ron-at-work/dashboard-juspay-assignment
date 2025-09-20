@@ -197,7 +197,7 @@ describe('BarChart', () => {
     render(<BarChart {...defaultProps} />);
     
     const chartContainer = screen.getByText('Projections vs Actuals').closest('div');
-    expect(chartContainer).toHaveClass('chart-container', 'bg-dashboard-bgSecondary', 'rounded-lg', 'p-6', 'border-none', 'w-full');
+    expect(chartContainer).toHaveClass('chart-container', 'bg-dashboard-bgSenary', 'rounded-lg', 'p-6', 'border-none', 'w-full');
   });
 
   it('should handle long titles', () => {

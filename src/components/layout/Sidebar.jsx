@@ -6,6 +6,7 @@ import {
 } from 'lucide-react';
 import PropTypes from 'prop-types';
 import ThemeSvg from '../ui/ThemeSvg';
+import Typography from '../ui/Typography';
 
 /**
  * Sidebar component for navigation - Pixel perfect design
@@ -96,13 +97,14 @@ const Sidebar = React.memo(({ navigation, appName, isCollapsed, onToggleCollapse
         transition={{ duration: 0.2 }}
       >
         <div
-          className={`flex items-center py-2 text-sm font-medium transition-colors duration-200 ${
+          className={`flex items-center py-1 text-sm font-medium transition-colors duration-200 ${
             isActive 
-              ? `bg-dashboard-bgSecondary text-dashboard-textPrimary border-l-2 border-dashboard-textPrimary ${shouldShowCollapsed ? 'pl-0' : 'pl-3'}` 
-              : `text-dashboard-textSecondary hover:bg-dashboard-bgSecondary hover:text-dashboard-textPrimary ${shouldShowCollapsed ? 'pl-0' : 'pl-3'}`
+              ? `relative pl-9 rounded-lg bg-dashboard-bgSecondary text-dashboard-textPrimary  ${shouldShowCollapsed ? 'pl-0' : 'pl-3'}` 
+              : `text-dashboard-textSecondary hover:bg-dashboard-bgSecondary hover:rounded-lg hover:text-dashboard-textPrimary ${shouldShowCollapsed ? 'pl-0' : 'pl-3'}`
           } ${shouldShowCollapsed ? 'justify-center' : ''} ${item.subItems ? 'cursor-pointer' : 'cursor-pointer'}`}
           onClick={handleItemClick}
         >
+          {isActive && <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-4 rounded-full bg-dashboard-textPrimary"></div>}
           {/* Chevron icon BEFORE the name - exclude specific items and hide when collapsed */}
           {!shouldShowCollapsed && !(item.name === 'Overview' || (item.name === 'Projects' && sectionKey === 'favorites') || item.name === 'Default') && (
             item.subItems ? (
@@ -127,7 +129,7 @@ const Sidebar = React.memo(({ navigation, appName, isCollapsed, onToggleCollapse
             <div className={`${shouldShowCollapsed ? 'w-6 h-6' : 'w-4 h-4'} ${shouldShowCollapsed ? '' : 'mr-3'}`}></div>
           )}
           
-          {!shouldShowCollapsed && <span className="flex-1">{item.name}</span>}
+          {!shouldShowCollapsed && <Typography variant="body3">{item.name}</Typography>}
         </div>
         
         {/* Sub-items - no icons, no dots */}
@@ -145,7 +147,7 @@ const Sidebar = React.memo(({ navigation, appName, isCollapsed, onToggleCollapse
                   }
                 }}
               >
-                {subItem.name}
+                <Typography variant="body3">{subItem.name}</Typography>
               </div>
             ))}
           </div>
@@ -169,12 +171,12 @@ const Sidebar = React.memo(({ navigation, appName, isCollapsed, onToggleCollapse
             transition={{ duration: 0.3, delay: 0.1 }}
             className="mb-3 flex items-center space-x-4"
           >
-            <h3 className="text-xs font-semibold  tracking-wider text-dashboard-textPrimary">
+            <Typography variant="body1">
               {section.title}
-            </h3>
-            <h3 className="text-xs font-semibold  tracking-wider text-dashboard-textSecondary">
+            </Typography>
+            <Typography variant="body2">
               Recently
-            </h3>
+            </Typography>
           </motion.div>
         )}
           
@@ -206,9 +208,9 @@ const Sidebar = React.memo(({ navigation, appName, isCollapsed, onToggleCollapse
             transition={{ duration: 0.3, delay: 0.1 }}
             className="mb-3"
           >
-            <h3 className="text-xs font-semibold uppercase tracking-wider text-dashboard-textSecondary">
-              {section.title}
-            </h3>
+            <Typography variant="body5">   
+               {section.title} 
+            </Typography>
           </motion.div>
         )}
         
@@ -250,7 +252,7 @@ const Sidebar = React.memo(({ navigation, appName, isCollapsed, onToggleCollapse
         >
           <ThemeSvg name="byewind" className="w-8 h-8" />
           {!shouldShowCollapsed && (
-            <span className="text-lg font-semibold text-dashboard-textPrimary">{appName}</span>
+            <Typography variant="heading1">{appName}</Typography>
           )}
         </motion.div>
 

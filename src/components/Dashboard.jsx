@@ -6,6 +6,7 @@ import LineChart from './charts/LineChart';
 import DonutChart from './charts/DonutChart';
 import DataTable from './ui/DataTable';
 import RevenueByLocation from './charts/RevenueByLocation';
+import Typography from './ui/Typography';
 
 /**
  * Main Dashboard component that displays all analytics data
@@ -20,9 +21,9 @@ const Dashboard = ({ data }) => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className="flex-1 p-6 bg-dashboard-bgPrimary overflow-y-auto"
+      className="flex-1 p-4 sm:p-6 lg:p-8 bg-dashboard-bgPrimary overflow-y-auto scrollbar-hide"
     >
-      <div className="max-w-7xl mx-auto">
+      <div>
         {/* Page Title */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -30,33 +31,33 @@ const Dashboard = ({ data }) => {
           transition={{ duration: 0.5 }}
           className="mb-8"
         >
-          <h1 className="text-2xl font-bold text-dashboard-textPrimary">eCommerce</h1>
+          <Typography variant="heading2">eCommerce</Typography>
         </motion.div>
 
         {/* Metrics Cards and Bar Chart row */}
-        <div className="flex flex-col lg:flex-row gap-6 mb-8">
+        <div className="flex flex-col md:flex-row gap-4 sm:gap-6 mb-8">
           {/* Metric Cards - 2x2 grid */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6 lg:w-1/2"
+            className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 md:gap-6 md:1/2 flex-1 min-w-0"
           >
             {metrics?.cards?.map((card, index) => {
               // Define background colors for each card
               const bgColors = [
                 'bg-dashboard-bgTertiary',    // Card 1: bgTertiary (light theme color)
-                'bg-dashboard-bgSecondary',   // Card 2: bgSecondary (keep same)
-                'bg-dashboard-bgSecondary',   // Card 3: bgSecondary (keep same)
+                'bg-dashboard-bgSenary',   // Card 2: bgSecondary (keep same)
+                'bg-dashboard-bgSenary',   // Card 3: bgSecondary (keep same)
                 'bg-dashboard-bgQuaternary'   // Card 4: bgQuaternary (light theme color)
               ];
               
               // Define text colors for each card
               const textColors = [
-                'text-gray-600',              // Card 1: fixed light gray (same in both themes)
+                '#1C1C1C',              // Card 1: fixed light gray (same in both themes)
                 'text-dashboard-textPrimary', // Card 2: theme-aware text
                 'text-dashboard-textPrimary', // Card 3: theme-aware text
-                'text-gray-600'               // Card 4: fixed light gray (same in both themes)
+                '#1C1C1C'               // Card 4: fixed light gray (same in both themes)
               ];
               
               return (
@@ -80,7 +81,7 @@ const Dashboard = ({ data }) => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="lg:w-1/2"
+            className="md:w-1/2  w-full min-w-0"
           >
             <BarChart
               title={charts.projectionsVsActuals.title}
@@ -92,47 +93,61 @@ const Dashboard = ({ data }) => {
         </div>
 
         {/* Charts Row 1 - Revenue Line Chart */}
-        <div className="grid grid-cols-1 xl:grid-cols-5 gap-6 mb-8">
-          {/* Revenue Chart - 4/5 columns */}
-          <div className="xl:col-span-4">
+        <div className="flex flex-col md:flex-row gap-4 sm:gap-6 mb-8">
+          {/* Revenue Chart - 3/5 width */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            className="w-full md:w-4/5 min-w-0"
+          >
             <LineChart
               title={charts.revenue.title}
               categories={charts.revenue.data.categories}
               series={charts.revenue.data.series}
               delay={0.3}
             />
-          </div>
+          </motion.div>
 
-          {/* Revenue by Location - 1/5 columns */}
-          <div className="xl:col-span-1">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.6 }}
-            >
-              <RevenueByLocation
-                title={revenueByLocation.title}
-                locations={revenueByLocation.locations}
-                delay={0.6}
-              />
-            </motion.div>
-          </div>
+          {/* Revenue by Location - 2/5 width */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.6 }}
+            className="w-full md:w-1/4 min-w-0"
+          >
+            <RevenueByLocation
+              title={revenueByLocation.title}
+              locations={revenueByLocation.locations}
+              delay={0.6}
+            />
+          </motion.div>
         </div>
 
         {/* Charts Row 2 - Top Selling Products and Donut Chart */}
-        <div className="grid grid-cols-1 xl:grid-cols-5 gap-6 mb-8">
-          {/* DataTable - 4/5 columns */}
-          <div className="xl:col-span-4">
+        <div className="flex flex-col md:flex-row gap-4 sm:gap-6 mb-8">
+          {/* DataTable - 3/5 width */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="w-full md:w-4/5 min-w-0"
+          >
             <DataTable
               title={topSellingProducts.title}
               columns={topSellingProducts.columns}
               data={topSellingProducts.data}
               delay={0.4}
             />
-          </div>
+          </motion.div>
 
-          {/* DonutChart - 1/5 columns */}
-          <div className="xl:col-span-1">
+          {/* DonutChart - 2/5 width */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.5 }}
+            className="w-full md:w-1/4 min-w-0"
+          >
             <DonutChart
               title={charts.totalSales.title}
               series={charts.totalSales.data.series}
@@ -140,7 +155,7 @@ const Dashboard = ({ data }) => {
               centerValue={charts.totalSales.data.centerValue}
               delay={0.5}
             />
-          </div>
+          </motion.div>
         </div>
 
       

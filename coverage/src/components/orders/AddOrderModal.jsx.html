@@ -795,7 +795,7 @@ const AddOrderModal = <span class="cstat-no" title="statement not covered" ><spa
               &lt;/h2&gt;
               &lt;button
                 onClick={handleClose}
-                className="p-2 hover:bg-dashboard-bgSecondary rounded-lg transition-colors"
+                className="p-2 hover:bg-dashboard-bgSenary rounded-lg transition-colors"
               &gt;
                 &lt;X className="w-5 h-5 text-dashboard-textSecondary" /&gt;
               &lt;/button&gt;
@@ -814,7 +814,7 @@ const AddOrderModal = <span class="cstat-no" title="statement not covered" ><spa
                   value={formData.orderId}
                   onChange={handleInputChange}
                   placeholder="e.g., #CM9801"
-                  className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-dashboard-accent focus:border-transparent bg-dashboard-bgSecondary text-dashboard-textPrimary placeholder-dashboard-textTertiary ${
+                  className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-dashboard-accent focus:border-transparent bg-dashboard-bgSenary text-dashboard-textPrimary placeholder-dashboard-textTertiary ${
                     errors.orderId ? 'border-red-500' : 'border-dashboard-border'
                   }`}
                 /&gt;
@@ -834,7 +834,7 @@ const AddOrderModal = <span class="cstat-no" title="statement not covered" ><spa
                   value={formData.user}
                   onChange={handleInputChange}
                   placeholder="e.g., John Doe"
-                  className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-dashboard-accent focus:border-transparent bg-dashboard-bgSecondary text-dashboard-textPrimary placeholder-dashboard-textTertiary ${
+                  className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-dashboard-accent focus:border-transparent bg-dashboard-bgSenary text-dashboard-textPrimary placeholder-dashboard-textTertiary ${
                     errors.user ? 'border-red-500' : 'border-dashboard-border'
                   }`}
                 /&gt;
@@ -854,7 +854,7 @@ const AddOrderModal = <span class="cstat-no" title="statement not covered" ><spa
                   value={formData.project}
                   onChange={handleInputChange}
                   placeholder="e.g., Landing Page"
-                  className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-dashboard-accent focus:border-transparent bg-dashboard-bgSecondary text-dashboard-textPrimary placeholder-dashboard-textTertiary ${
+                  className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-dashboard-accent focus:border-transparent bg-dashboard-bgSenary text-dashboard-textPrimary placeholder-dashboard-textTertiary ${
                     errors.project ? 'border-red-500' : 'border-dashboard-border'
                   }`}
                 /&gt;
@@ -874,7 +874,7 @@ const AddOrderModal = <span class="cstat-no" title="statement not covered" ><spa
                   onChange={handleInputChange}
                   placeholder="e.g., 123 Main Street, City"
                   rows={3}
-                  className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-dashboard-accent focus:border-transparent bg-dashboard-bgSecondary text-dashboard-textPrimary placeholder-dashboard-textTertiary resize-none ${
+                  className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-dashboard-accent focus:border-transparent bg-dashboard-bgSenary text-dashboard-textPrimary placeholder-dashboard-textTertiary resize-none ${
                     errors.address ? 'border-red-500' : 'border-dashboard-border'
                   }`}
                 /&gt;
@@ -894,7 +894,7 @@ const AddOrderModal = <span class="cstat-no" title="statement not covered" ><spa
                   className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-dashboard-accent focus:border-transparent text-dashboard-textPrimary ${
                     theme === 'dark' 
                       ? 'bg-dashboard-bgPrimary border-dashboard-border' 
-                      : 'bg-dashboard-bgSecondary border-dashboard-border'
+                      : 'bg-dashboard-bgSenary border-dashboard-border'
                   }`}
                 &gt;
                   {statusOptions.map(<span class="fstat-no" title="function not covered" >(o</span>ption) =&gt; (
@@ -916,8 +916,8 @@ const AddOrderModal = <span class="cstat-no" title="statement not covered" ><spa
                   onClick={handleClose}
                   className={`flex-1 px-4 py-2 border rounded-lg transition-colors ${
                     theme === 'dark'
-                      ? 'border-dashboard-border text-dashboard-textSecondary hover:bg-dashboard-bgSecondary'
-                      : 'border-dashboard-border text-dashboard-textSecondary hover:bg-dashboard-bgSecondary'
+                      ? 'border-dashboard-border text-dashboard-textSecondary hover:bg-dashboard-bgSenary'
+                      : 'border-dashboard-border text-dashboard-textSecondary hover:bg-dashboard-bgSenary'
                   }`}
                 &gt;
                   Cancel
@@ -927,7 +927,7 @@ const AddOrderModal = <span class="cstat-no" title="statement not covered" ><spa
                   className={`flex-1 px-4 py-2 rounded-lg transition-colors ${
                     theme === 'dark'
                       ? 'bg-dashboard-bgPrimary text-white hover:bg-opacity-90'
-                      : 'bg-dashboard-bgSecondary text-dashboard-textPrimary hover:bg-opacity-90'
+                      : 'bg-dashboard-bgSenary text-dashboard-textPrimary hover:bg-opacity-90'
                   }`}
                 &gt;
                   Create Order

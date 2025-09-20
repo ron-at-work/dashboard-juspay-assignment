@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import NotificationItem from '../ui/NotificationItem';
 import ActivityItem from '../ui/ActivityItem';
 import ContactItem from '../ui/ContactItem';
+import Typography from '../ui/Typography';
 
 /**
  * RightSidebar component for notifications, activities, and contacts
@@ -21,9 +22,9 @@ const RightSidebar = React.memo(({ notifications, activities, contacts }) => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.3 }}
         >
-          <h3 className="text-lg font-semibold text-dashboard-textPrimary mb-4">
+          <Typography variant="heading3" className='px-1 py-2'>
             {notifications?.title || 'Notifications'}
-          </h3>
+          </Typography>
           <div className="space-y-2 max-w-full">
             {notifications?.items?.map((item, index) => (
               <NotificationItem
@@ -43,9 +44,7 @@ const RightSidebar = React.memo(({ notifications, activities, contacts }) => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.4 }}
         >
-          <h3 className="text-lg font-semibold text-dashboard-textPrimary mb-4">
-            {activities?.title || 'Recent Activity'}
-          </h3>
+          <Typography variant="heading3" className='px-1 py-2'> {activities?.title || 'Recent Activity'} </Typography>
           <div className="space-y-2 max-w-full">
             {activities?.items?.map((item, index) => (
               <ActivityItem
@@ -65,9 +64,9 @@ const RightSidebar = React.memo(({ notifications, activities, contacts }) => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.5 }}
         >
-          <h3 className="text-lg font-semibold text-dashboard-textPrimary mb-4">
+          <Typography variant="heading3" className='px-1 py-2'>
             {contacts?.title || 'Contacts'}
-          </h3>
+          </Typography>
           <div className="space-y-2 max-w-full">
             {contacts?.items?.map((item, index) => (
               <ContactItem

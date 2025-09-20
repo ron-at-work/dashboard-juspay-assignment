@@ -20,6 +20,38 @@ export const useOrdersData = (ordersData) => {
     return statuses;
   }, [orders]);
 
+  // Helper function to parse relative dates to sortable values
+  const parseDateForSorting = (dateString) => {
+    const now = new Date();
+    const lowerDate = dateString.toLowerCase();
+    
+    // Handle relative time formats
+    if (lowerDate.includes('just now')) return now.getTime();
+    if (lowerDate.includes('minute ago')) {
+      const minutes = parseInt(lowerDate.match(/(\d+)/)?.[1] || '1');
+      return new Date(now.getTime() - minutes * 60 * 1000).getTime();
+    }
+    if (lowerDate.includes('hour ago')) {
+      const hours = parseInt(lowerDate.match(/(\d+)/)?.[1] || '1');
+      return new Date(now.getTime() - hours * 60 * 60 * 1000).getTime();
+    }
+    if (lowerDate.includes('yesterday')) {
+      return new Date(now.getTime() - 24 * 60 * 60 * 1000).getTime();
+    }
+    if (lowerDate.includes('day ago')) {
+      const days = parseInt(lowerDate.match(/(\d+)/)?.[1] || '1');
+      return new Date(now.getTime() - days * 24 * 60 * 60 * 1000).getTime();
+    }
+    
+    // Handle specific date formats like "Feb 2, 2023"
+    const parsedDate = new Date(dateString);
+    // Check if the date is valid
+    if (isNaN(parsedDate.getTime())) {
+      return new Date('1900-01-01').getTime();
+    }
+    return parsedDate.getTime();
+  };
+
   // Filter and sort orders
   const filteredAndSortedOrders = useMemo(() => {
     let filtered = orders.filter(order => {
@@ -42,11 +74,13 @@ export const useOrdersData = (ordersData) => {
         
         // Handle different data types
         if (sortField === 'orderId') {
-          aValue = a.orderId.replace('#CM', '');
-          bValue = b.orderId.replace('#CM', '');
-        }
-        
-        if (typeof aValue === 'string') {
+          aValue = parseInt(a.orderId.replace('#CM', ''));
+          bValue = parseInt(b.orderId.replace('#CM', ''));
+        } else if (sortField === 'date') {
+          // Special handling for date field
+          aValue = parseDateForSorting(a.date);
+          bValue = parseDateForSorting(b.date);
+        } else if (typeof aValue === 'string') {
           aValue = aValue.toLowerCase();
           bValue = bValue.toLowerCase();
         }

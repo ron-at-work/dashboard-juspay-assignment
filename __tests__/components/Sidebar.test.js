@@ -185,7 +185,7 @@ describe('Sidebar', () => {
     const ordersItem = screen.getByText('Orders');
     // Check if the parent element has the active styling
     const ordersButton = ordersItem.closest('div');
-    expect(ordersButton).toHaveClass('bg-dashboard-bgSecondary', 'text-dashboard-textPrimary', 'border-l-2', 'border-dashboard-textPrimary');
+    expect(ordersButton).toHaveClass('bg-dashboard-bgSenary', 'text-dashboard-textPrimary', 'border-l-2', 'border-dashboard-textPrimary');
   });
 
   it('should handle missing navigation data gracefully', () => {

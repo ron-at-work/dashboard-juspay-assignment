@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import ThemeSvg from './ThemeSvg';
+import Typography from './Typography';
 
 /**
  * ContactItem component for displaying individual contacts
@@ -26,10 +27,10 @@ const ContactItem = ({ name, avatar, index = 0 }) => {
       className="contact-item"
     >
       <div className="flex-shrink-0">
-        <ThemeSvg name={avatarSvg} className="w-8 h-8" />
+        <ThemeSvg name={avatarSvg} className="w-6 h-6" />
       </div>
       <div className="flex-1 min-w-0">
-        <p className="text-sm font-medium text-dashboard-textPrimary">{name}</p>
+        <Typography variant="paragraph3">{name}</Typography>
       </div>
     </motion.div>
   );

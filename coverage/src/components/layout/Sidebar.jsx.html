@@ -725,8 +725,8 @@ const Sidebar = React.memo(({ navigation, appName, isCollapsed, onToggleCollapse
         &lt;div
           className={`flex items-center py-2 text-sm font-medium transition-colors duration-200 ${
             isActive 
-              ? `bg-dashboard-bgSecondary text-dashboard-textPrimary border-l-2 border-dashboard-textPrimary ${shouldShowCollapsed ? 'pl-0' : 'pl-3'}` 
-              : `text-dashboard-textSecondary hover:bg-dashboard-bgSecondary hover:text-dashboard-textPrimary ${shouldShowCollapsed ? 'pl-0' : 'pl-3'}`
+              ? `bg-dashboard-bgSenary text-dashboard-textPrimary border-l-2 border-dashboard-textPrimary ${shouldShowCollapsed ? 'pl-0' : 'pl-3'}` 
+              : `text-dashboard-textSecondary hover:bg-dashboard-bgSenary hover:text-dashboard-textPrimary ${shouldShowCollapsed ? 'pl-0' : 'pl-3'}`
           } ${shouldShowCollapsed ? 'justify-center' : ''} ${item.subItems ? 'cursor-pointer' : 'cursor-pointer'}`}
           onClick={handleItemClick}
         &gt;

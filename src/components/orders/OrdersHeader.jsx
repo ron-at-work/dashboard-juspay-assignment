@@ -4,6 +4,8 @@ import { Search, ChevronDown } from 'lucide-react';
 import PropTypes from 'prop-types';
 import ThemeSvg from '../ui/ThemeSvg';
 import { useTheme } from '../../contexts/ThemeContext';
+import Typography from '../ui/Typography';
+import { validateSearchQuery } from '../../utils/validation';
 
 /**
  * Orders page header component with search and filter controls
@@ -17,7 +19,8 @@ const OrdersHeader = ({
   uniqueStatuses,
   statusFilter,
   handleStatusFilter,
-  onOpenAddModal
+  onOpenAddModal,
+  handleSort
 }) => {
   const theme = useTheme();
   return (
@@ -27,56 +30,51 @@ const OrdersHeader = ({
       transition={{ duration: 0.5 }}
       className="mb-8"
     >
-      <h1 className="text-2xl font-bold text-dashboard-textPrimary mb-6">
-        {ordersData.title}
-      </h1>
+      <Typography variant="heading2" className='mb-4' >{ordersData.title}</Typography>
+       
 
       {/* Action Buttons and Search */}
-      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 bg-dashboard-bgSecondary p-2 rounded-xl">
+      <div className="flex  justify-between items-start sm:items-center gap-4 bg-dashboard-bgSenary p-2 rounded-xl">
         {/* Action Buttons */}
         <div className="flex items-center space-x-3">
           <button 
             onClick={onOpenAddModal}
-            className={`flex items-center space-x-2 rounded-lg transition-all duration-200 hover:scale-105 hover:shadow-md p-2 ${
-              theme.isDark ? 'hover:bg-dashboard-bgSecondary' : 'hover:bg-dashboard-bgTertiary'
-            }`}
+            className={`flex items-center space-x-2 rounded-lg transition-all duration-200 hover:scale-105 hover:shadow-md  `}
           >
-            <ThemeSvg name='plusicon' className="w-8 h-8 rounded-full" />
+            <ThemeSvg name='plusicon' className="w-6 h-6 rounded-full" />
           </button>
           
           {/* Filter Dropdown */}
           <div className="relative filter-dropdown">
             <button 
               onClick={() => setShowFilterDropdown(!showFilterDropdown)}
-              className={`border-none rounded-lg transition-all duration-200 hover:scale-105 hover:shadow-md flex items-center space-x-1 p-2 ${
-                theme.isDark ? 'hover:bg-dashboard-bgSecondary' : 'hover:bg-dashboard-bgTertiary'
-              }`}
+                className={`border-none rounded-lg transition-all duration-200 hover:scale-105 hover:shadow-md flex items-center space-x-1 `}
             >
-              <ThemeSvg name='filter' className="w-8 h-8 rounded-full" />
+              <ThemeSvg name='filter' className="w-6 h-6 rounded-full" />
               <ChevronDown className="w-4 h-4 text-dashboard-textSecondary" />
             </button>
             
             {showFilterDropdown && (
               <div className="absolute top-full left-0 mt-2 w-48 bg-dashboard-card border border-dashboard-border rounded-lg shadow-lg z-10">
                 <div className="p-2">
-                  <div className="text-sm font-medium text-dashboard-textPrimary mb-2">Filter by Status</div>
+                  <Typography variant="paragraph2">Filter by Status</Typography>
                   <button
                     onClick={() => handleStatusFilter('all')}
-                    className={`w-full text-left px-3 py-2 text-sm rounded hover:bg-dashboard-bgSecondary ${
-                      statusFilter === 'all' ? 'bg-dashboard-bgSecondary text-dashboard-textPrimary' : 'text-dashboard-textSecondary'
+                    className={`w-full text-left px-3 py-2 text-sm rounded hover:bg-dashboard-bgSenary ${
+                      statusFilter === 'all' ? 'bg-dashboard-bgSenary text-dashboard-textPrimary' : 'text-dashboard-textSecondary'
                     }`}
                   >
-                    All Statuses
+                    <Typography variant="paragraph2">All Statuses</Typography>
                   </button>
                   {uniqueStatuses.map((status) => (
                     <button
                       key={status}
                       onClick={() => handleStatusFilter(status)}
-                      className={`w-full text-left px-3 py-2 text-sm rounded hover:bg-dashboard-bgSecondary ${
-                        statusFilter === status ? 'bg-dashboard-bgSecondary text-dashboard-textPrimary' : 'text-dashboard-textSecondary'
+                      className={`w-full text-left px-3 py-2 text-sm rounded hover:bg-dashboard-bgSenary ${
+                        statusFilter === status ? 'bg-dashboard-bgSenary text-dashboard-textPrimary' : 'text-dashboard-textSecondary'
                       }`}
                     >
-                      {status}
+                      <Typography variant="paragraph2">{status}</Typography>
                     </button>
                   ))}
                 </div>
@@ -84,23 +82,34 @@ const OrdersHeader = ({
             )}
           </div>
           
-          <button className={`border-none rounded-lg transition-all duration-200 hover:scale-105 hover:shadow-md p-2 ${
-            theme.isDark ? 'hover:bg-dashboard-bgSecondary' : 'hover:bg-dashboard-bgTertiary'
-          }`}>
-            <ThemeSvg name='sort' className="w-8 h-8 rounded-full" />
+          <button 
+            onClick={() => handleSort('date')}
+            className={`border-none rounded-lg transition-all duration-200 hover:scale-105 hover:shadow-md  `}
+            title="Sort by Date"
+          >
+            <ThemeSvg name='sort' className="w-6 h-6 rounded-full" />
           </button>
         </div>
 
         {/* Search Bar */}
-        <div className="relative $">
-          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-dashboard-textTertiary" />
-          <input
-            type="text"
-            placeholder="Search"
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-            className={`pl-10 pr-4 py-2 border border-dashboard-border bg-dashboard-bgSecondary rounded-lg focus:outline-none focus:ring-2 focus:ring-dashboard-accent focus:border-transparent w-64 text-dashboard-textPrimary placeholder-dashboard-textTertiary ${theme === 'dark' ? 'bg-dashboard-bgPrimary' : 'bg-dashboard-bgSecondary'}`}
-          />
+          <div className=" flex items-center gap-2 justify-center">
+          <div className="relative flex items-center bg-dashboard-bgPrimary rounded-xl px-1 py-1 border border-dashboard-border">
+              <Search className="w-4 h-4 text-gray-400" />
+              <input
+                type="text"
+                placeholder="Search"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(validateSearchQuery(e.target.value))}
+                className="w-40 pl-2 pr-2 bg-transparent text-dashboard-textSecondary focus:ring-0 focus:outline-none border-0 transition-all duration-200 text-sm leading-5"
+                style={{
+                  fontFamily: 'Inter',
+                  fontWeight: 400,
+                  fontSize: '14px',
+                  lineHeight: '20px',
+                  letterSpacing: '0%',
+                }}
+              />
+            </div>
         </div>
       </div>
     </motion.div>
@@ -117,6 +126,7 @@ OrdersHeader.propTypes = {
   statusFilter: PropTypes.string.isRequired,
   handleStatusFilter: PropTypes.func.isRequired,
   onOpenAddModal: PropTypes.func.isRequired,
+  handleSort: PropTypes.func.isRequired,
 };
 
 export default OrdersHeader;

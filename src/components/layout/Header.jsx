@@ -7,6 +7,7 @@ import PropTypes from 'prop-types';
 import { useTheme } from '../../contexts/ThemeContext';
 import ThemeSvg from '../ui/ThemeSvg';
 import { validateSearchQuery } from '../../utils/validation';
+import Typography from '../ui/Typography';
 
 /**
  * Header component with search, navigation icons, and theme toggle
@@ -93,15 +94,14 @@ const Header = React.memo(({ header, onToggleSidebar, onToggleRightSidebar, onTo
               <ThemeSvg name="collapse" className="w-5 h-5" />
             </button>
             <div className="block md:hidden">
-           <h3 className=" font-semibold  tracking-wider text-dashboard-textPrimary">
-              ByeWind
-            </h3>  
+<Typography variant="heading1">                ByeWind
+            </Typography>  
         </div>
             <div className="hidden md:flex items-center space-x-3">
               <ThemeSvg name="star-filled" className="w-5 h-5 text-gray-600" />
-              <span className="text-dashboard-textSecondary text-sm font-medium">Dashboards</span>
+              <Typography variant="body5">Dashboards</Typography>
               <ThemeSvg name='trailing-slash' className="w-5 h-5" />
-              <span className="text-dashboard-textPrimary text-sm font-medium">{getCurrentPageName()}</span>
+              <Typography variant="body3">{getCurrentPageName()}</Typography>
             </div>
           </div>
         </div>
@@ -112,14 +112,22 @@ const Header = React.memo(({ header, onToggleSidebar, onToggleRightSidebar, onTo
         <div className="flex items-center space-x-4">
           {/* Search bar - hidden on mobile */}
           <form onSubmit={handleSearch} className="relative hidden md:block">
-            <div className={`relative flex items-center ${theme === 'dark' ? 'bg-dashboard-bgSecondary' : 'bg-dashboard-bgQuinary'} rounded-xl px-2 py-2`}>
-              <Search className="w-4 h-4 text-gray-400" />
+            <div className={`relative flex items-center ${theme === 'dark' ? 'bg-dashboard-bgSenary' : 'bg-dashboard-bgQuinary'} rounded-xl px-2 py-2`}>
+              <Search className="w-4 h-4 text-dashboard-textSecondary" />
               <input
                 type="text"
                 placeholder="Search"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(validateSearchQuery(e.target.value))}
-                className="w-40 pl-2 pr-2 bg-transparent focus:ring-0 focus:outline-none border-0 transition-all duration-200 text-sm"
+                className="w-40 px-2 py-0 bg-transparent focus:ring-0 focus:outline-none border-0 transition-all duration-200 text-sm leading-5"
+                style={{
+                  fontFamily: 'Inter',
+                  fontWeight: 400,
+                  fontSize: '14px',
+                  lineHeight: '20px', 
+                  letterSpacing: '0%',
+                  color: 'var(--typography-body6)'
+                }}
               />
               <span className="text-gray-400 text-xs">⌘/</span>
             </div>

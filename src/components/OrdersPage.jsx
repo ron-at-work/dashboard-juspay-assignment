@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import PropTypes from 'prop-types';
 import { useOrdersData } from '../hooks/useOrdersData';
 import { useOrdersTable } from '../hooks/useOrdersTable';
 import OrdersHeader from './orders/OrdersHeader';
@@ -73,7 +74,7 @@ const OrdersPage = ({ ordersData }) => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className="flex-1 p-6 bg-dashboard-bgPrimary overflow-y-auto"
+      className="flex-1 p-4 sm:p-6 lg:p-8 bg-dashboard-bgPrimary overflow-y-auto"
     >
       <div className="max-w-7xl mx-auto">
         {/* Page Header */}
@@ -87,6 +88,7 @@ const OrdersPage = ({ ordersData }) => {
           statusFilter={statusFilter}
           handleStatusFilter={handleStatusFilter}
           onOpenAddModal={handleOpenAddModal}
+          handleSort={handleSort}
         />
 
         {/* Orders Table */}
@@ -120,6 +122,10 @@ const OrdersPage = ({ ordersData }) => {
       />
     </motion.main>
   );
+};
+
+OrdersPage.propTypes = {
+  ordersData: PropTypes.object.isRequired,
 };
 
 export default OrdersPage;

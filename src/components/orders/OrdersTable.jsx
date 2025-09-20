@@ -4,7 +4,7 @@ import { ArrowUpDown, MoreHorizontal } from 'lucide-react';
 import ThemeSvg from '../ui/ThemeSvg';
 import { useTheme } from '../../contexts/ThemeContext';
 import { getAvatarSvg, getStatusColor, getStatusTextColor, getFieldMap } from '../../utils/ordersUtils';
-
+import Typography from '../ui/Typography';
 /**
  * Orders table component
  */
@@ -38,7 +38,7 @@ const OrdersTable = ({
                   type="checkbox"
                   checked={selectedOrders.length === ordersData.data.length && ordersData.data.length > 0}
                   onChange={handleSelectAll}
-                  className="w-4 h-4 text-dashboard-textPrimary bg-dashboard-card border-dashboard-border rounded focus:ring-dashboard-accent"
+                  className="w-3 h-3 text-dashboard-textPrimary bg-dashboard-card border-dashboard-border rounded focus:ring-dashboard-accent"
                   style={{ accentColor: '#1C1C1C' }}
                 />
               </th>
@@ -48,11 +48,11 @@ const OrdersTable = ({
                 return (
                   <th 
                     key={index} 
-                    className="px-6 py-3 text-left text-sm font-normal text-dashboard-textSecondary cursor-pointer hover:bg-dashboard-bgSecondary transition-colors"
+                    className="px-6 py-3 text-left cursor-pointer hover:bg-dashboard-bgSenary transition-colors"
                     onClick={() => handleSort(field)}
                   >
                     <div className="flex items-center space-x-1">
-                      <span>{column}</span>
+                      <Typography variant="paragraph2">{column}</Typography>
                       {sortField === field && (
                         <ArrowUpDown className={`w-4 h-4 ${sortDirection === 'asc' ? 'rotate-180' : ''}`} />
                       )}
@@ -72,8 +72,8 @@ const OrdersTable = ({
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3, delay: index * 0.05 }}
-                  className={`hover:bg-dashboard-bgSecondary transition-colors ${
-                    selectedOrders.includes(order.id) ? 'bg-dashboard-bgSecondary' : ''
+                  className={`hover:bg-dashboard-bgSenary transition-colors ${
+                    selectedOrders.includes(order.id) ? 'bg-dashboard-bgSenary' : ''
                   }`}
                 >
                   {/* Checkbox */}
@@ -82,14 +82,14 @@ const OrdersTable = ({
                       type="checkbox"
                       checked={selectedOrders.includes(order.id)}
                       onChange={() => handleSelectOrder(order.id)}
-                      className="w-4 h-4 text-dashboard-textPrimary bg-dashboard-card border-dashboard-border rounded focus:ring-dashboard-accent"
+                      className="w-3 h-3 text-dashboard-textPrimary bg-dashboard-card border-dashboard-border rounded focus:ring-dashboard-accent"
                       style={{ accentColor: '#1C1C1C' }}
                     />
                   </td>
 
                   {/* Order ID */}
-                    <td className="px-6 py-4 text-sm font-medium text-dashboard-textPrimary">
-                      {order.orderId}
+                    <td className="px-6 py-4">
+                      <Typography variant="paragraph2" className="font-medium">{order.orderId}</Typography>
                     </td>
 
                   {/* User */}
@@ -99,19 +99,19 @@ const OrdersTable = ({
                         name={getAvatarSvg(order.user)} 
                         className="w-8 h-8 rounded-full" 
                       />
-                        <span className="text-sm text-dashboard-textPrimary">{order.user}</span>
+                        <Typography variant="paragraph2">{order.user}</Typography>
                     </div>
                   </td>
 
                   {/* Project */}
-                  <td className="px-6 py-4 text-sm text-dashboard-textPrimary">
-                    {order.project}
+                  <td className="px-6 py-4">
+                    <Typography variant="paragraph2">{order.project}</Typography>
                   </td>
 
                   {/* Address */}
-                  <td className="px-6 py-4 text-sm text-dashboard-textPrimary">
+                  <td className="px-6 py-4">
                     <div className="flex items-center space-x-2">
-                      <span>{order.address}</span>
+                      <Typography variant="paragraph2">{order.address}</Typography>
                       {order.address === "Nest Lane Olivette" && (
                         <ThemeSvg name='clipboard' className="w-4 h-4 rounded-full" />
                       )}
@@ -119,10 +119,10 @@ const OrdersTable = ({
                   </td>
 
                   {/* Date */}
-                  <td className="px-6 py-4 text-sm text-dashboard-textPrimary">
-                    <div className="flex items-center space-x-2">
+                  <td className="px-6 py-4">
+                    <div className="flex items-center space-x-2 whitespace-nowrap">
                       <ThemeSvg name='calendar' className="w-4 h-4 rounded-full" />
-                      <span>{order.date}</span>
+                      <Typography variant="paragraph2">{order.date}</Typography>
                     </div>
                   </td>
 
@@ -133,12 +133,13 @@ const OrdersTable = ({
                         className="w-2 h-2 rounded-full" 
                         style={{ backgroundColor: getStatusColor(order.statusColor, theme) }}
                       ></div>
-                      <span 
-                        className="text-sm font-medium" 
+                      <Typography 
+                        variant="paragraph2" 
+                        className="font-medium text-xs" 
                         style={{ color: getStatusTextColor(order.statusColor, theme) }}
                       >
                         {order.status}
-                      </span>
+                      </Typography>
                         {order.status === "Rejected" && (
                           <MoreHorizontal className="w-4 h-4 text-dashboard-textTertiary" />
                         )}
@@ -150,17 +151,16 @@ const OrdersTable = ({
               <tr>
                     <td colSpan={ordersData.columns.length + 2} className="px-6 py-12 text-center">
                       <div className="flex flex-col items-center space-y-4">
-                        <div className="w-16 h-16 bg-dashboard-bgSecondary rounded-full flex items-center justify-center">
+                        <div className="w-16 h-16 bg-dashboard-bgSenary rounded-full flex items-center justify-center">
                           <svg className="w-8 h-8 text-dashboard-textTertiary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                           </svg>
                         </div>
                         <div className="text-center">
-                          <h3 className="text-lg font-medium text-dashboard-textPrimary mb-2">No orders found</h3>
-                          <p className="text-dashboard-textSecondary mb-4">
+                          <Typography variant="heading2">No orders found</Typography>
+                          <Typography variant="paragraph2">
                             Try adjusting your search or filter criteria
-                          </p>
-                         
+                          </Typography>
                         </div>
                       </div>
                     </td>

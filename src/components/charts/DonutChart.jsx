@@ -2,6 +2,7 @@ import React from 'react';
 import Chart from 'react-apexcharts';
 import { motion } from 'framer-motion';
 import PropTypes from 'prop-types';
+import Typography from '../ui/Typography';
 
 /**
  * DonutChart component for displaying total sales breakdown
@@ -92,14 +93,14 @@ const DonutChart = React.memo(({ title, series, labels, centerValue, delay = 0 }
             <div key={index} className="flex items-center justify-between">
               <div className="flex items-center space-x-2">
                 <div 
-                  className="w-3 h-3 rounded-full" 
+                  className="w-2 h-2 rounded-full text-xs" 
                   style={{ backgroundColor: options.colors[index] }}
                 ></div>
-                <span className="text-sm text-dashboard-textPrimary">{label}</span>
+                <Typography variant="paragraph2">{label}</Typography>
               </div>
-              <span className="text-sm font-medium text-dashboard-textPrimary">
+              <Typography variant="paragraph2">
                 ${seriesValue.toFixed(2)}
-              </span>
+              </Typography>
             </div>
           );
         })}
@@ -112,9 +113,9 @@ const DonutChart = React.memo(({ title, series, labels, centerValue, delay = 0 }
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay }}
-      className="chart-container bg-dashboard-bgSecondary border-none rounded-lg p-6 h-[350px] flex flex-col"
+      className="chart-container bg-dashboard-bgSenary border-none rounded-lg p-6 h-[350px] flex flex-col"
     >
-      <h3 className="text-lg font-semibold text-dashboard-textPrimary mb-4">{title}</h3>
+      <Typography variant="heading2">{title}</Typography>
       <div className="flex-1 flex flex-col">
         <div className="flex-1">
           <Chart

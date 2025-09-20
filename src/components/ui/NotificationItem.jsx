@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import ThemeSvg from './ThemeSvg';
+import Typography from './Typography';
 
 /**
  * NotificationItem component for displaying individual notifications
@@ -35,11 +36,11 @@ const NotificationItem = ({ message, time, icon, index = 0 }) => {
       className="notification-item"
     >
       <div className="flex-shrink-0">
-        <ThemeSvg name={iconName} className="w-8 h-8" />
+        <ThemeSvg name={iconName} className="w-6 h-6" />
       </div>
       <div className="flex-1 min-w-0">
-        <p className="text-sm text-dashboard-textPrimary">{message}</p>
-        <p className="text-xs text-dashboard-textSecondary mt-1">{time}</p>
+        <Typography variant="paragraph3">{message}</Typography>
+        <Typography variant="body7">{time}</Typography>
       </div>
     </motion.div>
   );

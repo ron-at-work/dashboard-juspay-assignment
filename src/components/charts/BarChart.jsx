@@ -2,6 +2,7 @@ import React from 'react';
 import Chart from 'react-apexcharts';
 import { motion } from 'framer-motion';
 import PropTypes from 'prop-types';
+import Typography from '../ui/Typography';
 
 /**
  * BarChart component for displaying projections vs actuals data
@@ -25,6 +26,16 @@ const BarChart = React.memo(({ title, categories, series, delay = 0 }) => {
         speed: 800,
       },
       stacked: true,
+      parentHeightOffset: 0,
+      redrawOnParentResize: true,
+      responsive: [{
+        breakpoint: 640,
+        options: {
+          chart: {
+            height: 160,
+          },
+        }
+      }],
     },
     plotOptions: {
       bar: {
@@ -56,6 +67,8 @@ const BarChart = React.memo(({ title, categories, series, delay = 0 }) => {
           fontSize: '12px',
           fontFamily: 'Inter, sans-serif',
         },
+        rotate: -45,
+        rotateAlways: false,
       },
     },
     yaxis: {
@@ -121,16 +134,18 @@ const BarChart = React.memo(({ title, categories, series, delay = 0 }) => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay }}
-      className="chart-container bg-dashboard-bgSecondary rounded-lg p-6 border-none w-full"
+      className="chart-container bg-dashboard-bgSenary rounded-lg p-4 sm:p-6 border-none w-full h-full overflow-hidden min-w-0"
     >
-      <h3 className="text-lg font-semibold text-dashboard-textPrimary mb-4">{title}</h3>
-      <Chart
-        options={options}
-        series={series}
-        type="bar"
-        height={180}
-        width="100%"
-      />
+      <Typography variant="heading2">{title}</Typography>
+      <div className="w-full h-full min-h-0 flex-1">
+        <Chart
+          options={options}
+          series={series}
+          type="bar"
+          height={180}
+          width="100%"
+        />
+      </div>
     </motion.div>
   );
 });

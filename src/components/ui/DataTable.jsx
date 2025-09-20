@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import Typography from './Typography';
 
 /**
  * DataTable component for displaying tabular data with animations
@@ -15,10 +16,10 @@ const DataTable = ({ title, columns, data, delay = 0 }) => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay }}
-      className="bg-dashboard-bgSecondary rounded-lg p-6 overflow-hidden h-[350px] flex flex-col"
+      className="bg-dashboard-bgSenary rounded-lg p-6 overflow-hidden h-[350px] flex flex-col"
     >
       <div className=" ">
-        <h3 className="text-lg font-semibold text-dashboard-textPrimary">{title}</h3>
+        <Typography variant="heading2">{title}</Typography>
       </div>
       <div className="flex-1 overflow-hidden">
         <table className="w-full">
@@ -29,7 +30,7 @@ const DataTable = ({ title, columns, data, delay = 0 }) => {
                   key={index}
                   className="px-6 py-4 text-left text-sm font-medium text-dashboard-textSecondary"
                 >
-                  {column}
+                  <Typography variant="paragraph2">{column}</Typography>
                 </th>
               ))}
             </tr>
@@ -44,19 +45,19 @@ const DataTable = ({ title, columns, data, delay = 0 }) => {
                   duration: 0.3, 
                   delay: delay + (rowIndex * 0.1) 
                 }}
-                className="hover:bg-dashboard-bgSecondary transition-colors duration-200"
+                className="hover:bg-dashboard-bgSenary transition-colors duration-200"
               >
                 <td className="px-6 py-3 whitespace-nowrap text-sm font-medium text-dashboard-textPrimary">
-                  {row.name}
+                  <Typography variant="paragraph2">{row.name}</Typography>
                 </td>
                 <td className="px-6 py-3 whitespace-nowrap text-sm text-dashboard-textSecondary">
-                  {row.price}
+                  <Typography variant="paragraph2">{row.price}</Typography>
                 </td>
                 <td className="px-6 py-3 whitespace-nowrap text-sm text-dashboard-textSecondary">
-                  {row.quantity}
+                  <Typography variant="paragraph2">{row.quantity}</Typography>
                 </td>
                 <td className="px-6 py-3 whitespace-nowrap text-sm font-medium text-dashboard-textPrimary">
-                  {row.amount}
+                  <Typography variant="paragraph2">{row.amount}</Typography>
                 </td>
               </motion.tr>
             ))}

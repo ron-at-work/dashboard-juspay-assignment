@@ -181,7 +181,7 @@ describe('DonutChart', () => {
     render(<DonutChart {...defaultProps} />);
     
     const chartContainer = screen.getByText('Total Sales').closest('div');
-    expect(chartContainer).toHaveClass('chart-container', 'bg-dashboard-bgSecondary', 'border-none', 'rounded-lg', 'p-6', 'h-[350px]', 'flex', 'flex-col');
+    expect(chartContainer).toHaveClass('chart-container', 'bg-dashboard-bgSenary', 'border-none', 'rounded-lg', 'p-6', 'h-[350px]', 'flex', 'flex-col');
   });
 
   it('should handle long titles', () => {

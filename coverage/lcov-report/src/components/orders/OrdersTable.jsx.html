@@ -465,7 +465,7 @@ const OrdersTable = <span class="cstat-no" title="statement not covered" ><span 
 <span class="cstat-no" title="statement not covered" >                return (</span>
                   &lt;th 
                     key={index} 
-                    className="px-6 py-3 text-left text-sm font-normal text-dashboard-textSecondary cursor-pointer hover:bg-dashboard-bgSecondary transition-colors"
+                    className="px-6 py-3 text-left text-sm font-normal text-dashboard-textSecondary cursor-pointer hover:bg-dashboard-bgSenary transition-colors"
                     onClick={<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >handleSort(field)}</span>
                   &gt;
                     &lt;div className="flex items-center space-x-1"&gt;
@@ -489,8 +489,8 @@ const OrdersTable = <span class="cstat-no" title="statement not covered" ><span 
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3, delay: index * 0.05 }}
-                  className={`hover:bg-dashboard-bgSecondary transition-colors ${
-                    selectedOrders.includes(order.id) ? 'bg-dashboard-bgSecondary' : ''
+                  className={`hover:bg-dashboard-bgSenary transition-colors ${
+                    selectedOrders.includes(order.id) ? 'bg-dashboard-bgSenary' : ''
                   }`}
                 &gt;
                   {/* Checkbox */}
@@ -567,7 +567,7 @@ const OrdersTable = <span class="cstat-no" title="statement not covered" ><span 
               &lt;tr&gt;
                     &lt;td colSpan={ordersData.columns.length + 2} className="px-6 py-12 text-center"&gt;
                       &lt;div className="flex flex-col items-center space-y-4"&gt;
-                        &lt;div className="w-16 h-16 bg-dashboard-bgSecondary rounded-full flex items-center justify-center"&gt;
+                        &lt;div className="w-16 h-16 bg-dashboard-bgSenary rounded-full flex items-center justify-center"&gt;
                           &lt;svg className="w-8 h-8 text-dashboard-textTertiary" fill="none" stroke="currentColor" viewBox="0 0 24 24"&gt;
                             &lt;path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /&gt;
                           &lt;/svg&gt;

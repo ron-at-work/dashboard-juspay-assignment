@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { MapPin } from 'lucide-react';
+import Typography from '../ui/Typography';
 
 /**
  * RevenueByLocation component for displaying revenue by location
@@ -18,9 +18,9 @@ const RevenueByLocation = ({ title, locations, delay = 0 }) => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay }}
-      className="chart-container bg-dashboard-bgSecondary border-none rounded-lg p-6 h-[350px] flex flex-col"
+      className="chart-container bg-dashboard-bgSenary border-none rounded-lg p-6 h-[350px] flex flex-col"
     >
-      <h3 className="text-lg font-semibold text-dashboard-textPrimary mb-4">{title}</h3>
+      <Typography variant="heading2">{title}</Typography>
       
       {/* Map */}
       <div className="relative rounded-lg mb-4 h-32 overflow-hidden">
@@ -49,12 +49,12 @@ const RevenueByLocation = ({ title, locations, delay = 0 }) => {
               className="space-y-2"
             >
               <div className="flex items-center justify-between">
-                <span className="text-sm font-medium text-dashboard-textPrimary">
+                <Typography variant="paragraph2">
                   {location.name}
-                </span>
-                <span className="text-sm font-semibold text-dashboard-textPrimary">
+                </Typography>
+                <Typography variant="paragraph2">
                   {location.revenue}
-                </span>
+                </Typography>
               </div>
               <div className="w-full bg-dashboard-textTertiary rounded-full h-1">
                 <motion.div

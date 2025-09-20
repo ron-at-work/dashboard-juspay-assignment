@@ -47,7 +47,7 @@ const ResponsiveLayout = ({ children, sidebar, rightSidebar, onToggleRightSideba
   }, [onToggleRightSidebar]);
 
   return (
-    <div className="flex h-screen bg-dashboard-bgPrimary main-layout">
+    <div className="flex h-screen bg-dashboard-bgPrimary main-layout max-w-[1440px] mx-auto">
 
       {/* Left Sidebar - Desktop */}
       <div className="hidden lg:block">

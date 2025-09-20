@@ -1,6 +1,7 @@
 import React from 'react';
 import Chart from 'react-apexcharts';
 import { motion } from 'framer-motion';
+import Typography from '../ui/Typography';
 
 /**
  * LineChart component for displaying revenue trends
@@ -141,10 +142,10 @@ const LineChart = React.memo(({ title, categories, series, delay = 0 }) => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay }}
-      className="chart-container bg-dashboard-bgSecondary border-none rounded-lg p-6 h-[350px] flex flex-col"
+      className="chart-container bg-dashboard-bgSenary border-none rounded-lg p-6 h-[350px] flex flex-col"
     >
-      <div className="flex items-center gap-8 mb-4">
-        <h3 className="text-lg font-semibold text-dashboard-textPrimary">{title}</h3>
+      <div className="flex items-center gap-3 mb-4">
+        <Typography variant="heading2">{title}</Typography>
         <div className='flex items-center gap-2 text-dashboard-textSecondary'>|</div>
         <div className="flex flex-col sm:flex-row sm:space-x-4 space-y-2 sm:space-y-0 text-sm">
           {series?.map((item, index) => (
@@ -153,8 +154,8 @@ const LineChart = React.memo(({ title, categories, series, delay = 0 }) => {
                 className="w-3 h-3 rounded-full"
                 style={{ backgroundColor: options.colors[index] }}
               />
-              <span className="text-dashboard-textSecondary">{item.name}</span>
-              <span className="font-medium text-dashboard-textPrimary">{item.value}</span>
+              <Typography variant="paragraph4">{item.name}</Typography>
+              <Typography variant="paragraph4" className='!font-semibold'>{item.value}</Typography>
             </div>
           ))}
         </div>

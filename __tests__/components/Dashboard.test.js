@@ -315,8 +315,8 @@ describe('Dashboard', () => {
     
     // Check background colors for each card
     expect(metricCards[0]).toHaveAttribute('data-bg-color', 'bg-dashboard-bgTertiary');
-    expect(metricCards[1]).toHaveAttribute('data-bg-color', 'bg-dashboard-bgSecondary');
-    expect(metricCards[2]).toHaveAttribute('data-bg-color', 'bg-dashboard-bgSecondary');
+    expect(metricCards[1]).toHaveAttribute('data-bg-color', 'bg-dashboard-bgSenary');
+    expect(metricCards[2]).toHaveAttribute('data-bg-color', 'bg-dashboard-bgSenary');
     expect(metricCards[3]).toHaveAttribute('data-bg-color', 'bg-dashboard-bgQuaternary');
   });
 
